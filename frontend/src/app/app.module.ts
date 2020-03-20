@@ -11,6 +11,7 @@ import {RegisterComponent} from "./register/register.component";
 import { HospitalFilterComponent } from './hospital-filter/hospital-filter.component';
 import { HospitalAdminDaysComponent } from './hospital-admin-days/hospital-admin-days.component';
 import { HospitalAdminUpdateDayComponent } from './hospital-admin-update-day/hospital-admin-update-day.component';
+import {NgMapsCoreModule} from "@ng-maps/core";
 
 const appRoutes: Routes = [
   { path: '', component: MapComponent },
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
     HospitalAdminUpdateDayComponent
   ],
   imports: [
+    NgMapsCoreModule.forRoot({apiKey: 'AIzaSyAgzoLRMvgPj0Lsg9mhdEoCq9_eYMcAOaw'}),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
