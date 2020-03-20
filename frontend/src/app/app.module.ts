@@ -5,14 +5,37 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { HospitalComponent } from './hospital/hospital.component';
+import {RouterModule, Routes} from "@angular/router";
+import { HospitalListComponent } from './hospital-list/hospital-list.component';
+import {RegisterComponent} from "./register/register.component";
+import { HospitalFilterComponent } from './hospital-filter/hospital-filter.component';
+import { HospitalAdminDaysComponent } from './hospital-admin-days/hospital-admin-days.component';
+import { HospitalAdminUpdateDayComponent } from './hospital-admin-update-day/hospital-admin-update-day.component';
+
+const appRoutes: Routes = [
+  { path: 'map', component: MapComponent },
+  { path: 'hospitalList' , component: HospitalListComponent },
+  { path: 'register',      component: RegisterComponent },
+  { path: 'hospitalAdminDays',      component: HospitalAdminDaysComponent },
+  { path: 'hospitalAdminUpdateDay:/date',      component: HospitalAdminUpdateDayComponent },
+];
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-    HospitalComponent
+    HospitalComponent,
+    HospitalListComponent,
+    HospitalFilterComponent,
+    HospitalAdminDaysComponent,
+    HospitalAdminUpdateDayComponent
   ],
   imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    ),
     BrowserModule,
     AppRoutingModule
   ],
