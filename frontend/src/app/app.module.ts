@@ -13,6 +13,7 @@ import { HospitalAdminDaysComponent } from './hospital-admin-days/hospital-admin
 import { HospitalAdminUpdateDayComponent } from './hospital-admin-update-day/hospital-admin-update-day.component';
 
 const appRoutes: Routes = [
+  { path: '', component: MapComponent },
   { path: 'map', component: MapComponent },
   { path: 'hospitalList' , component: HospitalListComponent },
   { path: 'register',      component: RegisterComponent },
