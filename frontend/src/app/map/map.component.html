@@ -1,3 +1,11 @@
-<map-view [latitude]="52.520008" [longitude]="13.404954" [zoom]="8">
-  <map-marker [latitude]="h.lat" [longitude]="h.long" *ngFor="let h of hospitals"></map-marker>
-</map-view>
+<div class="main">
+  <div>
+    <map-view [latitude]="52.520008" [longitude]="13.404954" [zoom]="8">
+      <map-marker [latitude]="h.lat" [longitude]="h.long" *ngFor="let h of hospitals"></map-marker>
+    </map-view>
+  </div>
+  <div class="button">
+    <button class="liste custom" mat-button color="primary" routerLink="/hospitalList">Liste</button>
+  </div>
+</div>
+

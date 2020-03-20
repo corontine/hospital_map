@@ -13,6 +13,7 @@ import { HospitalAdminDaysComponent } from './hospital-admin-days/hospital-admin
 import { HospitalAdminUpdateDayComponent } from './hospital-admin-update-day/hospital-admin-update-day.component';
 import {NgMapsCoreModule} from "@ng-maps/core";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
 
 const appRoutes: Routes = [
   { path: '', component: MapComponent },
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     HospitalAdminUpdateDayComponent
   ],
   imports: [
+    MatButtonModule,
     NgMapsCoreModule.forRoot({apiKey: 'AIzaSyAgzoLRMvgPj0Lsg9mhdEoCq9_eYMcAOaw'}),
     RouterModule.forRoot(
       appRoutes,
