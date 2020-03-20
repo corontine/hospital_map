@@ -12,6 +12,7 @@ import { HospitalFilterComponent } from './hospital-filter/hospital-filter.compo
 import { HospitalAdminDaysComponent } from './hospital-admin-days/hospital-admin-days.component';
 import { HospitalAdminUpdateDayComponent } from './hospital-admin-update-day/hospital-admin-update-day.component';
 import {NgMapsCoreModule} from "@ng-maps/core";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   { path: '', component: MapComponent },
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
