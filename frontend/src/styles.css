@@ -3,7 +3,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {
+  padding:2em;
+}
+
 
 .button {
   position:absolute;
@@ -14,8 +17,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
-.custom {
+.custom, .custom:link, .custom:visited, .custom:active, .custom:hover {
   width:100%;
   background:darkgreen !important;
-  color:white;
+  color:white !important;
 }
