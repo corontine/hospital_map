@@ -1,5 +1,13 @@
-<app-hospital  *ngFor="let h of hospitals" [hospital]="h"></app-hospital>
+<mat-slide-toggle
+  (change)="toggle($event)"
+  class="example-margin"
+  [color]="color"
+  [checked]="checked"
+  [disabled]="disabled">
+  Filter Hospitals
+</mat-slide-toggle>
 
+<app-hospital  *ngFor="let h of hospitals" [hospital]="h"></app-hospital>
 
 <div class="button">
   <button class="liste custom" mat-button color="primary" routerLink="/map">Map</button>

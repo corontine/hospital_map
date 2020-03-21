@@ -14,11 +14,13 @@ import { HospitalAdminUpdateDayComponent } from './hospital-admin-update-day/hos
 import {NgMapsCoreModule} from "@ng-maps/core";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 const appRoutes: Routes = [
   { path: '', component: MapComponent },
   { path: 'map', component: MapComponent },
   { path: 'hospitalList' , component: HospitalListComponent },
+  { path: 'hospitalFilter' , component: HospitalFilterComponent },
   { path: 'register',      component: RegisterComponent },
   { path: 'hospitalAdminDays',      component: HospitalAdminDaysComponent },
   { path: 'hospitalAdminUpdateDay:/date',      component: HospitalAdminUpdateDayComponent },
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
     HospitalAdminUpdateDayComponent
   ],
   imports: [
+    MatSlideToggleModule,
     MatButtonModule,
     NgMapsCoreModule.forRoot({apiKey: 'AIzaSyAgzoLRMvgPj0Lsg9mhdEoCq9_eYMcAOaw'}),
     RouterModule.forRoot(
