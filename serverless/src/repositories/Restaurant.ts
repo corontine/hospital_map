@@ -10,7 +10,7 @@ const hospitalTableManager = new GeoDataManager(config);
 const docClient = new DynamoDB.DocumentClient();
 
 
-export const ScanHospitals = async (lat: number, long: number, radiusInMeters: number) => {
+export const ScanRestaurant = async (lat: number, long: number, radiusInMeters: number) => {
     const scanResults = await hospitalTableManager.queryRadius({
         RadiusInMeter: radiusInMeters,
         CenterPoint: {
@@ -23,10 +23,10 @@ export const ScanHospitals = async (lat: number, long: number, radiusInMeters: n
     return scanResults.map(DynamoDB.Converter.unmarshall);
 };
 
-export const CreateHospital = async (hospital: Hospital) => {
+export const CreateRestaurant = async (hospital: Hospital) => {
 
 
-    const createHospitalResult = await hospitalTableManager.putPoint({
+    const createRestaurantResult = await hospitalTableManager.putPoint({
         RangeKeyValue: {S: Math.random().toString(36).substring(2, 15)}, // Use this to ensure uniqueness of the hash/range pairs.
         GeoPoint: { // An object specifying latitutde and longitude as plain numbers. Used to build the geohash, the hashkey and geojson data
             latitude: hospital.lat,
@@ -55,7 +55,7 @@ export const CreateHospital = async (hospital: Hospital) => {
             // ... Anything else to pass through to `putItem`, eg ConditionExpression
         }
     }).promise();
-    return createHospitalResult;
+    return createRestaurantResult;
 };
 
 // type HospitalCapacityLog = {
@@ -66,6 +66,10 @@ export const CreateHospital = async (hospital: Hospital) => {
 //         timestamp: string
 //     }
 // }
+
+export const GetRestaurantItems = async (hashKey: number, rangeKey: string) => {
+
+};
 
 export const GetHospitalCapacityLogs = async (hashKey: number, rangeKey: string) => {
     const params = {

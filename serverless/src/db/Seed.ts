@@ -1,7 +1,7 @@
 // import {DynamoDB} from 'aws-sdk';
 import * as Chance from 'chance';
 import {addDays} from "date-fns";
-import {CreateHospital} from "../repositories/Hospital";
+import {CreateHospital} from "../repositories/Restaurant";
 
 export const Handler = async (event: any, context: any) => {
     const space = [...Array(100)];

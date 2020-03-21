@@ -1,4 +1,4 @@
-import {ScanHospitals} from "../repositories/Hospital";
+import {ScanHospitals} from "../repositories/Restaurant";
 import {BuildResponse} from "../helpers/Response";
 
 export const Scan = async (event: any, context: any) => {

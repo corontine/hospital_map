@@ -1,4 +1,4 @@
-import {GetHospitalCapacityLogs, ScanHospitals} from "../../repositories/Hospital";
+import {GetHospitalCapacityLogs, ScanHospitals} from "../../repositories/Restaurant";
 
 test('hospitals can be searched with geolocation', async() => {
     const berlinGeoLocation = [52.50, 13.40];
