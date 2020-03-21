@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --base-href  './' && cd dist/frontend && aws s3 sync . s3://hospitalmapcorona --delete --profile alessandro && cd ../../"
+    "deploy": "ng build --prod --base-href  './' && cd dist/frontend && aws s3 sync . s3://hospitalmapcorona --delete --profile surftraveljobs && cd ../../"
   },
   "private": true,
   "dependencies": {
