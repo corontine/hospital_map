@@ -1,21 +1,6 @@
 import {DynamoDB} from 'aws-sdk';
 import {GeoDataManager, GeoDataManagerConfiguration} from "dynamodb-geo";
 
-type Capacity = {
-    bed: number,
-    ventilator: number,
-    timestamp: Date
-}
-
-type Hospital = {
-    lat: number,
-    long: number,
-    name: string,
-    city: string,
-    region: string,
-    capacity_logs: Array<Capacity>
-}
-
 export const ScanHospitals = (lat: string, long: string, ) => {
 
 };
@@ -55,3 +40,5 @@ export const CreateHospital = async (hospital: Hospital) => {
     console.log('Hospital Created', createHospitalResult);
 };
 
+
+// export const UpdateHospital

@@ -34,15 +34,5 @@ provider:
 functions:
   createDynamoTable:
     handler: src/db/Create.Handler
-  createScanResult:
-    handler: src/controllers/ScanResult.CreateScanResult
-    events:
-      - http:
-          path: scan/create
-          method: post
-  createAlert:
-    handler: src/controllers/Alert.CreateAlert
-    events:
-      - http:
-          path: alert/create
-          method: post
+  seed:
+    handler: src/db/Seed.Handler
