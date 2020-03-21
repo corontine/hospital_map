@@ -32,6 +32,8 @@ provider:
 
 
 functions:
+  createDynamoTable:
+    handler: src/db/Create.Handler
   createScanResult:
     handler: src/controllers/ScanResult.CreateScanResult
     events:

@@ -29,6 +29,7 @@
     "@mobily/tifi": "^0.9.1",
     "aws-sdk": "^2.620.0",
     "date-fns": "^2.9.0",
-    "dynamodb-geo": "^0.4.0"
+    "dynamodb-geo": "^0.4.0",
+    "faker": "^4.1.0"
   }
 }
