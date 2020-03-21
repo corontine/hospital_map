@@ -1,1 +1,6 @@
-<p>hospital-list works!</p>
+<app-hospital  *ngFor="let h of hospitals" [hospital]="h"></app-hospital>
+
+
+<div class="button">
+  <button class="liste custom" mat-button color="primary" routerLink="/map">Map</button>
+</div>

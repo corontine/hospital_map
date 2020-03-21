@@ -5,3 +5,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.button {
+  position:absolute;
+  bottom:1em;
+  padding-left:10%;
+  padding-right:10%;
+  width:80%;
+}
+
+
+.custom {
+  width:100%;
+  background:darkgreen !important;
+  color:white;
+}
