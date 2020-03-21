@@ -46,6 +46,3 @@ functions:
       - http:
           path: alert/create
           method: post
-resources:
-  - ${file(resources/dynamodb-table.yml)}
-  - ${file(resources/cognito-user-pool.yml)}
