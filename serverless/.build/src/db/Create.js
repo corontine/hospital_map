@@ -16,8 +16,13 @@ const dynamodb_geo_1 = require("dynamodb-geo");
 exports.Handler = (event, context) => __awaiter(void 0, void 0, void 0, function* () {
     const ddb = new aws_sdk_1.DynamoDB();
     const config = new dynamodb_geo_1.GeoDataManagerConfiguration(ddb, `hospital_map-dev`);
-    config.hashKeyLength = 4;
+    config.hashKeyLength = 6;
+    // TODO: Switch dynamodb to PAY_PER_REQUEST. It didn't worked out for some reason
+    // and I don't want to waste more time.
     const createTableInput = dynamodb_geo_1.GeoTableUtil.getCreateTableRequest(config);
+    // createTableInput.ProvisionedThroughput.ReadCapacityUnits = 1;
+    // createTableInput.ProvisionedThroughput.WriteCapacityUnits = 1;
+    // createTableInput.BillingMode = "PAY_PER_REQUEST";
     const createTableResult = yield ddb.createTable(createTableInput).promise();
     console.log(createTableResult);
 });

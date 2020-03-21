@@ -1,17 +1,18 @@
 // import {DynamoDB} from 'aws-sdk';
 import * as Chance from 'chance';
 import {addDays} from "date-fns";
+import {CreateHospital} from "../repositories/Hospital";
 
-export const Handler = (event: any, context: any) => {
-    const space = [...Array(3000)];
-    const origin = [52.5200, 13.4050];
+export const Handler = async (event: any, context: any) => {
+    const space = [...Array(100)];
+    const origin = [52.50, 13.40];
     const change = new Chance();
-    const distance = 10;
+    const yDistance = 0.02;
+    const xDistance = 0.05;
     const hospitals = space.map((t) => {
-        console.log("Hello wrold");
         const hospital: any = {
-            lat: change.latitude({min:origin[0]-distance, max:origin[0]+distance}) ,
-            long: change.longitude({min: origin[1]-distance, max: origin[1]+distance}),
+            lat: change.latitude({min:origin[0]-yDistance, max:origin[0]+yDistance}) ,
+            long: change.longitude({min: origin[1]-xDistance, max: origin[1]+xDistance}),
             name: change.company(),
             city: change.city(),
             region: change.city(),
@@ -19,12 +20,15 @@ export const Handler = (event: any, context: any) => {
                 {
                     bed: change.integer({min: 0, max: 1000}),
                     ventilator: change.integer({min: 0, max: 100}),
-                    timestamp: addDays(new Date(), change.integer({max:-10, min: 0}))
+                    timestamp: addDays(new Date(), change.integer({min:-10, max: 0}))
                 }
             ]
         };
         return hospital;
     });
 
-    console.dir(hospitals);
+    for(const hospital of hospitals) {
+        const createHospitalResult = await CreateHospital(hospital);
+        console.log(createHospitalResult);
+    }
 };

@@ -1,4 +1,4 @@
-type Capacity = {
+type HospitalCapacityLog = {
     bed: number,
     ventilator: number,
     timestamp: Date
@@ -10,5 +10,5 @@ type Hospital = {
     name: string,
     city: string,
     region: string,
-    capacity_logs: Array<Capacity>
+    capacity_logs: Array<HospitalCapacityLog>
 }
