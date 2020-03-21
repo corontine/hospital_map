@@ -8,7 +8,7 @@ test('hospitals can be searched with geolocation', async() => {
 
 
 test('hospitals can be queried with hash and range keys', async () => {
-    const hashKey = "516346";
+    const hashKey = 516346;
     const rangeKey = "0apwckwv7k6";
     const hospitalCapacityLogs = await GetHospitalCapacityLogs(hashKey, rangeKey);
     console.log(hospitalCapacityLogs);

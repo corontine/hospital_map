@@ -67,13 +67,13 @@ export const CreateHospital = async (hospital: Hospital) => {
 //     }
 // }
 
-export const GetHospitalCapacityLogs = async (hashKey: string, rangeKey: string) => {
+export const GetHospitalCapacityLogs = async (hashKey: number, rangeKey: string) => {
     const params = {
-        TableName: tableName,
-        KeyConditionExpression: "hashKey = :hashKey AND rangeKey = :rangeKey",
-        ExpressionAttributeValues: {
-            "hashKey": hashKey,
-            "rangeKey": rangeKey
+        "TableName": tableName,
+        "KeyConditionExpression": "hashKey = :hashKey AND rangeKey = :rangeKey",
+        "ExpressionAttributeValues": {
+            ":hashKey": hashKey,
+            ":rangeKey": rangeKey
         }
     };
     const hospitalCapacityLogs = await docClient.query(params).promise();
@@ -83,9 +83,20 @@ export const GetHospitalCapacityLogs = async (hashKey: string, rangeKey: string)
 
 export const UpdateHospitalCapacityLogs = async (hashKey: string, rangeKey: string, newCapacityLog: HospitalCapacityLog) => {
     // TODO: Get real capacity by fixing GetHospitalCapacityLogs
-    // function.
+    // function. Currently it's erroring out due to hash key issues.
 
 
+    // Lets assume the merged hospitalcapacitylog is as the following for now
+
+    // const hospitalCapacityLogs: Array<HospitalCapacityLog> = [
+    //     {bed: 10, ventilator: 10, timestamp: new Date()},
+    //     {bed: 10, ventilator: 10, timestamp: new Date()},
+    //     {bed: 10, ventilator: 10, timestamp: new Date()},
+    //     {bed: 10, ventilator: 10, timestamp: new Date()},
+    //     {bed: 10, ventilator: 10, timestamp: new Date()},
+    //     {bed: 10, ventilator: 10, timestamp: new Date()}
+    // ];
+    //
     const putParams: any = {
         TableName: tableName,
         Key: {
@@ -94,7 +105,5 @@ export const UpdateHospitalCapacityLogs = async (hashKey: string, rangeKey: stri
         },
     };
 
-    docClient.put(
-
-    )
+    docClient.put(putParams);
 };

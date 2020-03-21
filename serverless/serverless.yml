@@ -1,5 +1,3 @@
-# org: gokaykucuk
-# app: trip-shuffler
 # NOTE: update this with your service name
 service: hospital_map-backend
 
@@ -12,7 +10,6 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: eu-central-1
   environment:
-    TRUEPUSH_API_KEY: ${env:TRUEPUSH_API_KEY}
     DYNAMODB_TABLE_NAME: coronablue-${opt:stage, 'dev'}
   iamRoleStatements:
     - Effect: "Allow"
@@ -36,3 +33,9 @@ functions:
     handler: src/db/Create.Handler
   seed:
     handler: src/db/Seed.Handler
+  scanHospitals:
+    handler: src/controllers/Hospitals.Scan
+    events:
+      - http:
+          method: POST
+          path: hospitals/scan
