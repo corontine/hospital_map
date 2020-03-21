@@ -1,5 +1,5 @@
 # NOTE: update this with your service name
-service: hospital_map-backend
+service: hospitalmap-backend
 
 plugins:
   - serverless-offline
